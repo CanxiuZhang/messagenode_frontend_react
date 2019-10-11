@@ -19,9 +19,9 @@ const post = props => (
       <Button mode="flat" link={props.id}>
         View
       </Button>
-      <Button mode="flat" onClick={props.onStartEdit}>
+      {/* <Button mode="flat" onClick={props.onStartEdit}>
         Edit
-      </Button>
+      </Button> */}
       <Button mode="flat" design="danger" onClick={props.onDelete}>
         Delete
       </Button>
