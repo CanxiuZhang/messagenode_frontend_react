@@ -20,9 +20,9 @@ class Feed extends Component {
     postsLoading: true,
     editLoading: false
   };
-
+  // URL='http://localhost:8080/auth/status'
   componentDidMount() {
-    fetch('http://localhost:8080/auth/status', {
+    fetch('http://messagenode-env.bi4496d2wk.us-east-2.elasticbeanstalk.com/auth/status', {
       headers: {
         'Authorization': 'Bearer ' + this.props.token
       }
@@ -54,7 +54,8 @@ class Feed extends Component {
       page--;
       this.setState({ postPage: page });
     }
-    fetch('http://localhost:8080/feed/posts?page='+page, {
+    // URL = 'http://localhost:8080/feed/posts?page='
+    fetch('http://messagenode-env.bi4496d2wk.us-east-2.elasticbeanstalk.com/feed/posts?page='+page, {
       headers: {
         'Authorization': 'Bearer ' + this.props.token // get token in react
       }
@@ -74,10 +75,10 @@ class Feed extends Component {
       })
       .catch(this.catchError);
   };
-
+  // URL='http://localhost:8080/auth/status'
   statusUpdateHandler = event => {
     event.preventDefault();
-    fetch('http://localhost:8080/auth/status', {
+    fetch('http://messagenode-env.bi4496d2wk.us-east-2.elasticbeanstalk.com/auth/status', {
       method: 'PATCH',
       headers: {
         'Authorization': 'Bearer ' + this.props.token,
@@ -127,7 +128,7 @@ class Feed extends Component {
     formData.append('title', postData.title);
     formData.append('content', postData.content);
     formData.append('image', postData.image);
-    let url = 'http://localhost:8080/feed/post';
+    let url = 'http://messagenode-env.bi4496d2wk.us-east-2.elasticbeanstalk.com/feed/post'; //URL='http://localhost:8080/feed/post'
     let method = 'POST';
     if (this.state.editPost) {
       url = 'URL';
@@ -186,10 +187,10 @@ class Feed extends Component {
   statusInputChangeHandler = (input, value) => {
     this.setState({ status: value });
   };
-
+  //URL='http://localhost:8080/feed/post/'
   deletePostHandler = postId => {
     this.setState({ postsLoading: true });
-    fetch('http://localhost:8080/feed/post/' + postId, {
+    fetch('http://messagenode-env.bi4496d2wk.us-east-2.elasticbeanstalk.com/feed/post/' + postId, {
       method: 'DELETE',
       headers: {
         'Authorization': 'Bearer ' + this.props.token // get token in react

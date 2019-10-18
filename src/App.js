@@ -55,11 +55,11 @@ class App extends Component {
     localStorage.removeItem('expiryDate');
     localStorage.removeItem('userId');
   };
-
+  // URL='http://localhost:8080/auth/login'
   loginHandler = (event, authData) => {
     event.preventDefault();
     this.setState({ authLoading: true });
-    fetch('http://localhost:8080/auth/login', {
+    fetch('http://messagenode-env.bi4496d2wk.us-east-2.elasticbeanstalk.com/auth/login', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -103,11 +103,11 @@ class App extends Component {
         });
       });
   };
-
+  // URL='http://localhost:8080/auth/signup'
   signupHandler = (event, authData) => {
     event.preventDefault();
     this.setState({ authLoading: true });
-    fetch('http://localhost:8080/auth/signup', {
+    fetch('http://messagenode-env.bi4496d2wk.us-east-2.elasticbeanstalk.com/auth/signup', {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

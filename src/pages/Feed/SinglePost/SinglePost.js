@@ -11,10 +11,10 @@ class SinglePost extends Component {
     image: '',
     content: ''
   };
-
+  //URL='http://localhost:8080/feed/post/'
   componentDidMount() {
     const postId = this.props.match.params.postId;
-    fetch('http://localhost:8080/feed/post/'+postId, {
+    fetch('http://messagenode-env.bi4496d2wk.us-east-2.elasticbeanstalk.com/feed/post/'+postId, {
       headers: {
         'Authorization': 'Bearer ' + this.props.token // get token in react
       }
@@ -31,7 +31,7 @@ class SinglePost extends Component {
           author: resData.post.creator.name,
           date: new Date(resData.post.createdAt).toLocaleDateString('en-US'),
           content: resData.post.content,
-          image: 'http://localhost:8080/'+resData.post.imageUrl
+          image: 'http://messagenode-env.bi4496d2wk.us-east-2.elasticbeanstalk.com/'+resData.post.imageUrl //URL='http://localhost:8080/'
         });
       })
       .catch(err => {
